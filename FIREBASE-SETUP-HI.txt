@@ -1,0 +1,18 @@
+लाइव बैकएंड जोड़ने की अगली योजना (हिंदी)
+========================================
+
+लक्ष्य: सभी ग्राहकों और विक्रेताओं के डेटा को एक साझा ऑनलाइन डेटाबेस में सुरक्षित रखना।
+
+अनुशंसित चरण:
+1. Firebase Console में नया project बनाएँ।
+2. Authentication में Email/Password या फोन लॉगिन सक्षम करें; production में OTP और abuse controls की जाँच करें।
+3. Firestore Database और Storage बनाएँ।
+4. users/{uid} में role (buyer/seller/admin) रखें, लेकिन role उपयोगकर्ता को खुद लिखने न दें। Admin role केवल भरोसेमंद server/Admin SDK से दें।
+5. Products को pending status से शुरू करें। केवल server/admin अधिकार वाला उपयोगकर्ता ही प्रकाशित कर सके।
+6. ऑर्डर क्लाइंट द्वारा सीधे मनमाने ढंग से लिखवाने के बजाय server-side Cloud Function/API से बनाएँ।
+7. भुगतान success केवल provider के सत्यापित server webhook से तय हो; browser redirect को प्रमाण न मानें।
+8. Firestore/Storage rules को emulator में परीक्षण करें; production में public read/write न खोलें।
+9. Admin panel को authentication और हर संवेदनशील कार्रवाई पर server-side authorization से सुरक्षित करें।
+10. privacy policy, terms, refund/return, grievance और लागू कानूनी आवश्यकताएँ पूरी करें।
+
+नोट: यह दस्तावेज़ कॉन्फ़िगरेशन पूरा नहीं करता। Firebase project credentials, वास्तविक auth, server functions और परीक्षण अलग से करने होंगे।
