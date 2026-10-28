@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b73">
+  <meta name="description" content="Buy & Sell — भारत में खरीदें और बेचें">
+  <title>Buy & Sell — भारत का मार्केटप्लेस</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Buy & Sell होम"><span class="brand-mark">B</span><span>Buy <b>&</b> Sell</span></a>
+  <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="सामान खोजें..." aria-label="सामान खोजें"></label>
+  <button id="installBtn" class="btn btn-light hidden" type="button">Install App</button>
+  <a class="btn btn-outline" href="admin.html">Admin</a>
+</header>
+<main class="container">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">भारत का नया ऑनलाइन बाज़ार</p>
+      <h1>जो चाहिए, यहाँ खोजिए।<br><span>जो बेचना है, यहाँ जोड़िए।</span></h1>
+      <p>उत्पाद देखें, अपना सामान लिस्ट करें और खरीद-बिक्री का डेमो आज़माएँ।</p>
+      <a class="btn btn-primary" href="#products">सामान देखें</a>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="bag">🛍️</div><div class="bubble bubble-one">खरीदो</div><div class="bubble bubble-two">बेचो</div></div>
+  </section>
+
+  <section class="notice" role="note"><strong>डेमो संस्करण:</strong> यह शुरुआती नमूना है। अभी असली भुगतान या ऑनलाइन डिलीवरी बुकिंग न करें। डेटा इसी ब्राउज़र में सेव होता है।</section>
+
+  <section class="section-head">
+    <div><p class="eyebrow">खोजें और चुनें</p><h2>श्रेणियाँ</h2></div>
+  </section>
+  <nav id="categories" class="categories" aria-label="उत्पाद श्रेणियाँ">
+    <button class="category active" data-category="सभी">✨ <span>सभी</span></button>
+    <button class="category" data-category="इलेक्ट्रॉनिक्स">📱 <span>इलेक्ट्रॉनिक्स</span></button>
+    <button class="category" data-category="फैशन">👕 <span>फैशन</span></button>
+    <button class="category" data-category="घर">🏠 <span>घर</span></button>
+    <button class="category" data-category="खाद्य पदार्थ">🌾 <span>खाद्य पदार्थ</span></button>
+    <button class="category" data-category="अन्य">📦 <span>अन्य</span></button>
+  </nav>
+
+  <section id="products" class="section">
+    <div class="section-head"><div><p class="eyebrow">आपके लिए</p><h2>लोकप्रिय उत्पाद</h2></div><span id="resultCount" class="muted"></span></div>
+    <div id="productGrid" class="product-grid"></div>
+    <p id="emptyState" class="empty hidden">कोई उत्पाद नहीं मिला। खोज बदलकर देखें।</p>
+  </section>
+
+  <section class="sell-panel">
+    <div><p class="eyebrow">विक्रेता बनें</p><h2>अपना सामान बेचने के लिए जोड़ें</h2><p class="muted">डेमो उत्पाद पहले Admin Panel में समीक्षा के लिए दिखेगा।</p></div>
+    <form id="sellerForm" class="seller-form">
+      <label>उत्पाद का नाम<input name="name" maxlength="70" required placeholder="जैसे: मखाना पाउडर"></label>
+      <div class="form-row">
+        <label>कीमत (₹)<input name="price" type="number" min="1" max="10000000" step="1" required placeholder="250"></label>
+        <label>श्रेणी<select name="category" required><option value="खाद्य पदार्थ">खाद्य पदार्थ</option><option value="इलेक्ट्रॉनिक्स">इलेक्ट्रॉनिक्स</option><option value="फैशन">फैशन</option><option value="घर">घर</option><option value="अन्य">अन्य</option></select></label>
+      </div>
+      <label>उत्पाद की फोटो का URL (वैकल्पिक)<input name="image" type="url" maxlength="500" placeholder="https://..."></label>
+      <button class="btn btn-primary" type="submit">उत्पाद जोड़ें</button>
+      <p id="sellerMessage" class="form-message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="cart-panel" id="cart">
+    <div class="section-head"><div><p class="eyebrow">आपकी पसंद</p><h2>कार्ट</h2></div><button id="clearCartBtn" class="btn btn-outline btn-small" type="button">कार्ट खाली करें</button></div>
+    <div id="cartItems" class="cart-items"><p class="muted">कार्ट खाली है।</p></div>
+    <div class="cart-total"><span>कुल (डेमो)</span><strong id="cartTotal">₹0</strong></div>
+    <button id="checkoutBtn" class="btn btn-primary" type="button">ऑर्डर डेमो देखें</button>
+    <p id="checkoutMessage" class="form-message" aria-live="polite"></p>
+  </section>
+</main>
+<footer class="footer"><span>© <span id="year"></span> Buy & Sell</span><span>शुरुआती डेमो · सुरक्षित लाइव लॉन्च से पहले बैकएंड आवश्यक</span></footer>
+<script src="app.js" defer></script>
+</body>
+</html>
