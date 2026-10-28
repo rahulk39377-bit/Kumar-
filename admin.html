@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b73">
+  <title>Admin Panel — Buy & Sell</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">B</span><span>Buy <b>&</b> Sell <small>Admin</small></span></a>
+  <a class="btn btn-outline" href="index.html">← स्टोर पर जाएँ</a>
+</header>
+<main class="container admin-container">
+  <section class="admin-warning"><strong>महत्वपूर्ण:</strong> यह केवल स्थानीय डेमो Admin Panel है, पासवर्ड-सुरक्षित लाइव एडमिन नहीं। इसे सार्वजनिक इंटरनेट पर वास्तविक ग्राहक डेटा के साथ इस्तेमाल न करें।</section>
+  <div class="section-head"><div><p class="eyebrow">स्टोर प्रबंधन</p><h1>Admin Panel</h1><p class="muted">इस ब्राउज़र में जोड़े गए उत्पाद यहाँ दिखेंगे।</p></div></div>
+  <section class="stats">
+    <article class="stat"><span>कुल उत्पाद</span><strong id="totalProducts">0</strong></article>
+    <article class="stat"><span>समीक्षा के लिए</span><strong id="pendingProducts">0</strong></article>
+    <article class="stat"><span>प्रकाशित</span><strong id="approvedProducts">0</strong></article>
+  </section>
+  <section class="admin-card">
+    <div class="section-head"><h2>उत्पाद प्रबंधन</h2><button id="resetDemo" class="btn btn-outline btn-small" type="button">डेमो रीसेट करें</button></div>
+    <div id="adminProducts" class="admin-products"></div>
+    <p id="adminEmpty" class="empty hidden">अभी कोई उत्पाद नहीं है। स्टोर पर जाकर उत्पाद जोड़ें।</p>
+  </section>
+  <section class="admin-card">
+    <h2>लाइव लॉन्च से पहले</h2>
+    <ul class="checklist">
+      <li>असली एडमिन लॉगिन और सर्वर-साइड भूमिका जाँच</li>
+      <li>साझा डेटाबेस और सुरक्षित नियम</li>
+      <li>विक्रेता पहचान, शिकायत और मॉडरेशन प्रक्रिया</li>
+      <li>भुगतान प्रदाता और रिफंड प्रक्रिया</li>
+      <li>गोपनीयता नीति, नियम-शर्तें और लागू कर/कानूनी जाँच</li>
+    </ul>
+  </section>
+</main>
+<footer class="footer"><span>Buy & Sell Admin Demo</span><span>किसी वास्तविक भुगतान या ऑर्डर की पुष्टि नहीं होती।</span></footer>
+<script src="admin.js" defer></script>
+</body>
+</html>
